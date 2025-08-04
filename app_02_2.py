@@ -8,7 +8,7 @@ import openpyxl
 from ortools.sat.python import cp_model
 
 # -------------------------------
-# 📂 Excelファイルの読み込み
+# Excelファイルの読み込み
 # -------------------------------
 st.title("しふと")
 
@@ -29,7 +29,7 @@ staffs = list(df_avail.columns)
 tasks = list(df_task.columns)
 
 # -------------------------------
-# 🧠 シフト自動割り当て（簡略版）
+# シフト自動割り当て（簡略版）
 # -------------------------------
 assignments = {s: {d: "" for d in dates} for s in staffs}
 work_count = {s: 0 for s in staffs}
