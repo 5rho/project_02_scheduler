@@ -7,10 +7,7 @@ from io import BytesIO
 import openpyxl
 from ortools.sat.python import cp_model
 
-# -------------------------------
-# Excelファイルの読み込み
-# -------------------------------
-st.title("しふと")
+st.title("シフト")
 
 uploaded_file = st.file_uploader("Excelファイルをアップロードしてください", type=["xlsx"])
 if not uploaded_file:
