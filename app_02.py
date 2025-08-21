@@ -137,3 +137,28 @@ if uploaded_file:
                 st.dataframe(df)
     else:
         st.error(" シフト作成失敗。スタッフ数やスケジュールを見直してください。")
+
+        #追加
+        st.subheader("原因候補：人員不足")
+        st.warning("以下の日付で、割り当て可能なスタッフがいないタスクがあります。")
+
+        found_unassignable = False
+        for task, schedule in task_plan.items():
+            for date, work in schedule:
+                # 割り当て可能なスタッフのリストを作成
+                possible_assignees = [
+                    worker
+                    for worker in workers
+                    if worker_availability.loc[date, worker] and worker_skills.get(worker, {}).get(work, False)
+                ]
+                
+                # もし、割り当て可能なスタッフが一人もいない場合
+                if not possible_assignees:
+                    st.write(f"日付: **{date.strftime('%Y-%m-%d')}**")
+                    st.write(f"タスク: **{task}** (作業: **{work}**)")
+                    st.write("このタスクをこなせるスタッフがいません。")
+                    st.write("---")
+                    found_unassignable = True
+        
+        if not found_unassignable:
+            st.info("すべてのタスクに割り当て可能なスタッフは存在します。他の制約（公平性など）が厳しすぎる可能性があります。")
