@@ -72,7 +72,7 @@ if uploaded_file:
                 if (task, date, work, worker) in assignment
             )
 
-    # 制約: 同じ人が同日に複数の作業をしない いや、する。
+    # 制約: 同じ人が同日に複数の作業をしない いや、する。5つまではやってもらう。
     for date in task_dates:
         for worker in workers:
             model.Add(
