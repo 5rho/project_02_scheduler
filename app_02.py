@@ -6,7 +6,7 @@ from collections import defaultdict
 import tempfile
 
 st.set_page_config(layout="wide")
-st.title("シフト表です。20250807時点の夏休みの予定をもとに作りました。")
+st.title("シフト表です。20250807の予定をもとに作りました。")
 
 uploaded_file = st.file_uploader("Excelファイルをアップロードしてください", type=["xlsx"])
 
@@ -72,7 +72,7 @@ if uploaded_file:
                 if (task, date, work, worker) in assignment
             )
 
-    # 制約: 同じ人が同日に複数の作業をしない いや、する。5つまではやってもらう。
+    # 制約: 同じ人が同日に複数の作業をしない いや、する。5つまではやってもらう。k[0]はtask, k[1]はdate, k[2]はwork, k[3]はworker
     for date in task_dates:
         for worker in workers:
             model.Add(
@@ -82,6 +82,7 @@ if uploaded_file:
                     if k[1] == date and k[3] == worker
                 ) <= 5
             )
+    
 
     # 公平性: 各スタッフの作業数をカウントし、最大と最小の差を最小化
     task_counts = {
