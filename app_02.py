@@ -79,7 +79,7 @@ if uploaded_file:
                 sum(
                     assignment[k]
                     for k in assignment
-                    if k[1] == date and k[5] == worker
+                    if k[1] == date and k[3] == worker
                 ) <= 5
             )
 
