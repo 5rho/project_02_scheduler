@@ -72,15 +72,15 @@ if uploaded_file:
                 if (task, date, work, worker) in assignment
             )
 
-    # 制約: 同じ人が同日に複数の作業をしない
+    # 制約: 同じ人が同日に複数の作業をしない いや、する。
     for date in task_dates:
         for worker in workers:
             model.Add(
                 sum(
                     assignment[k]
                     for k in assignment
-                    if k[1] == date and k[3] == worker
-                ) <= 3
+                    if k[1] == date and k[5] == worker
+                ) <= 5
             )
 
     # 公平性: 各スタッフの作業数をカウントし、最大と最小の差を最小化
