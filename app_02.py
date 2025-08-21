@@ -6,7 +6,7 @@ from collections import defaultdict
 import tempfile
 
 st.set_page_config(layout="wide")
-st.title("シフト表です。20250731時点の夏休みの予定をもとに作りました。")
+st.title("シフト表です。20250821時点の夏休みの予定をもとに作りました。")
 
 uploaded_file = st.file_uploader("Excelファイルをアップロードしてください", type=["xlsx"])
 
