@@ -136,8 +136,6 @@ if uploaded_file:
                 st.markdown(f"**{worker}**")
                 st.dataframe(df)
     else:
-        st.error(" シフト作成失敗。スタッフ数やスケジュールを見直してください。")
-
         #追加
         st.subheader("原因候補：人員不足")
         st.warning("以下の日付で、割り当て可能なスタッフがいないタスクがあります。")
