@@ -135,4 +135,4 @@ if uploaded_file:
                 st.markdown(f"**{worker}**")
                 st.dataframe(df)
     else:
-        st.error("❌ シフトを解決できませんでした。スタッフ数やスケジュールを見直してください。")
+        st.error(" シフト作成失敗。スタッフ数やスケジュールを見直してください。")
