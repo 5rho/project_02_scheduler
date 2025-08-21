@@ -97,7 +97,7 @@ if uploaded_file:
     min_tasks = model.NewIntVar(0, len(assignment), "min_tasks")
     model.AddMaxEquality(max_tasks, list(task_counts.values()))
     model.AddMinEquality(min_tasks, list(task_counts.values()))
-    model.Minimize(max_tasks - min_tasks)
+    #model.Minimize(max_tasks - min_tasks)
 
     # ソルバー
     solver = cp_model.CpSolver()
